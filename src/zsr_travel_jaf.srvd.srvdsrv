@@ -1,0 +1,6 @@
+@EndUserText.label: 'service defination'
+define service Zsr_travel_jaf {
+  expose ZC_travel_jaf;
+  expose zc_booking_jaf;
+  expose Zc_BOOKINGSUPP_JAF;
+}
