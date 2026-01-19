@@ -1,0 +1,42 @@
+managed ;//implementation in class zbp_i_travel_jaf unique;
+strict ( 2 );
+
+define behavior for ZI_Travel_jaf //alias <alias_name>
+implementation in class zcl_bp_travel_jaf unique
+persistent table ztravel_jaf
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) TravelId;
+  association _booking { create; }
+}
+
+define behavior for Zi_booking_jaf //alias <alias_name>
+persistent table zbooking_jaf
+lock dependent by _travel
+authorization dependent by _travel
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) TravelId, BookingId;
+  association _travel;
+  association _bookingsuppl { create; }
+}
+
+define behavior for zi_bookingsupp_jaf //alias <alias_name>
+persistent table zbookingsupp_jaf
+lock dependent by _travel
+authorization dependent by _travel
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) TravelId, BookingId, BookingSupplementId;
+  association _travel;
+  association _booking;
+}

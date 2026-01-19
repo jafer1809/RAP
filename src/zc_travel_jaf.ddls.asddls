@@ -7,8 +7,14 @@ define root view entity ZC_travel_jaf
   as projection on ZI_Travel_jaf
 {
   key TravelId,
+      @ObjectModel.text: {
+           element: [ 'agencyname' ]
+       }
       AgencyId,
-      _Agency.Name as agencyname,
+      _Agency.Name       as agencyname,
+      @ObjectModel.text: {
+       element: [ 'customername' ]
+      }
       CustomerId,
       _customer.LastName as customername,
       BeginDate,
@@ -19,15 +25,18 @@ define root view entity ZC_travel_jaf
       TotalPrice,
       CurrencyCode,
       Description,
+      @ObjectModel.text: {
+         element: [ 'statustext' ]
+      }
       OverallStatus,
-      _status._Text.Text :localized,
-//      CreatedBy,
-//      CreatedAt,
-//      LastChangedBy,
+      _status._Text.Text as statustext : localized,
+      //      CreatedBy,
+      //      CreatedAt,
+      //      LastChangedBy,
       LastChangedAt,
       /* Associations */
       _Agency,
-      _booking: redirected to composition child zc_booking_jaf,
+      _booking : redirected to composition child zc_booking_jaf,
       _currency,
       _customer,
       _status
