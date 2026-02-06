@@ -23,6 +23,7 @@ define view entity Zi_booking_jaf
       flight_price    as FlightPrice,
       currency_code   as CurrencyCode,
       booking_status  as BookingStatus,
+      @Semantics.systemDateTime.localInstanceLastChangedAt: true
       last_changed_at as LastChangedAt,
       _carrier,
       _customer,

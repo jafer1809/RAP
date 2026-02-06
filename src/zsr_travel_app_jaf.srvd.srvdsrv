@@ -1,0 +1,5 @@
+@EndUserText.label: 'travel approver service defination'
+define service Zsr_travel_app_jaf {
+  expose ZC_travel_app_jaf;
+  expose ZC_book_app_jaf;
+}

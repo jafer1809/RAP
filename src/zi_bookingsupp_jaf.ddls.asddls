@@ -17,6 +17,7 @@ define view entity zi_bookingsupp_jaf
       @Semantics.amount.currencyCode: 'CurrencyCode'
       price                 as Price,
       currency_code         as CurrencyCode,
+      @Semantics.systemDateTime.localInstanceLastChangedAt: true
       last_changed_at       as LastChangedAt,
       _supplement,
       _supplementtext,

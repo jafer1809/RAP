@@ -9,26 +9,29 @@
         value: 'TravelId'
     }
 }
-annotate view ZC_travel_jaf with
+annotate entity ZC_travel_app_jaf with
 {
   @UI.facet: [{
-      id: 'Travel',
-      purpose: #STANDARD,
-      position: 10,
-      label: 'Travel',
-      type: #IDENTIFICATION_REFERENCE
+   id: 'Travel',
+   purpose: #STANDARD,
+   position: 10,
+   label: 'Travel',
+   type: #IDENTIFICATION_REFERENCE
   },
   {
-      id: 'Booking',
-      purpose: #STANDARD,
-      position: 20,
-      label: 'Booking',
-      type: #LINEITEM_REFERENCE,
-      targetElement: '_booking'
+   id: 'Booking',
+   purpose: #STANDARD,
+   position: 20,
+   label: 'Booking',
+   type: #LINEITEM_REFERENCE,
+   targetElement: '_booking'
   }]
   @UI.lineItem: [{ position: 10 },
-  { type: #FOR_ACTION , dataAction: 'copytravel' , label: 'Copy Travel' }]
-  @UI.identification: [{ position: 10 }]
+  { type: #FOR_ACTION , dataAction: 'accepttravel' , label: 'Accept Travel' },
+  { type: #FOR_ACTION , dataAction: 'rejecttravel' , label: 'Reject Travel' }]
+  @UI.identification: [{ position: 10 },
+   { type: #FOR_ACTION , dataAction: 'accepttravel' , label: 'Accept Travel' },
+  { type: #FOR_ACTION , dataAction: 'rejecttravel' , label: 'Reject Travel' }]
   @Search.defaultSearchElement: true
   TravelId;
   @UI: { selectionField: [{ position: 10 }],
@@ -85,4 +88,5 @@ annotate view ZC_travel_jaf with
   @UI.identification: [{ position: 100 }]
   LastChangedAt;
   //
+
 }

@@ -1,0 +1,5 @@
+CLASS zcl_bp_bookingsuppl_jaf DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zi_travel_jaf.
+ENDCLASS.
+
+CLASS zcl_bp_bookingsuppl_jaf IMPLEMENTATION.
+ENDCLASS.

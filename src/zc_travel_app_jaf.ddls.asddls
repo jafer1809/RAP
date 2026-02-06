@@ -1,13 +1,13 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'consumption for travel'
+@EndUserText.label: 'consumption for approver'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
 @Search.searchable: true
-define root view entity ZC_travel_jaf
-  provider contract transactional_query
-  as projection on ZI_Travel_jaf
+define root view entity ZC_travel_app_jaf provider
+contract transactional_query as projection on ZI_Travel_jaf
 {
-  key TravelId,
+     key TravelId,
       @ObjectModel.text: {
            element: [ 'agencyname' ]
        }
@@ -31,16 +31,14 @@ define root view entity ZC_travel_jaf
       }
       OverallStatus,
       _status._Text.Text as statustext : localized,
-      @UI.hidden: true
-      CreatedBy,
-      @UI.hidden: true
-      CreatedAt,
-      @UI.hidden: true
-      LastChangedBy,
+      //      CreatedBy,
+      //      CreatedAt,
+      //      LastChangedBy,
       LastChangedAt,
       /* Associations */
       _Agency,
-      _booking : redirected to composition child zc_booking_jaf,
+//      _booking,
+      _booking : redirected to composition child zc_book_app_jaf,
       _currency,
       _customer,
       _status

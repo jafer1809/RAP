@@ -2,15 +2,17 @@ projection;
 strict ( 2 );
 
 define behavior for ZC_travel_jaf //alias <alias_name>
+use etag
 {
   use create;
   use update;
   use delete;
-
+  use action copytravel;
   use association _booking { create; }
 }
 
 define behavior for zc_booking_jaf //alias <alias_name>
+use etag
 {
   use update;
   use delete;
@@ -20,6 +22,7 @@ define behavior for zc_booking_jaf //alias <alias_name>
 }
 
 define behavior for Zc_BOOKINGSUPP_JAF //alias <alias_name>
+use etag
 {
   use update;
   use delete;
